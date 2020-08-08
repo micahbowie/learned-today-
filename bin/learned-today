@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require './lib/learned_today'
+LearnedToday::CLI.new.call

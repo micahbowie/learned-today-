@@ -1,0 +1,9 @@
+require_relative "learned_today/version"
+require_relative 'learned_today/cli'
+require_relative 'learned_today/scraper'
+require_relative 'learned_today/opening'
+require 'colorize'
+require 'nokogiri'
+require 'pry'
+require 'open-uri'
+require 'watir'

@@ -1,0 +1,18 @@
+
+[1mFrom:[0m C:/Users/Micah Bowie/learned_today/lib/learned_today/wotd.rb:26 LearnedToday::Wotd.scrape:
+
+    [1;34m18[0m: [32mdef[0m [1;36mself[0m.[1;34mscrape[0m
+    [1;34m19[0m:   doc = [1;34;4mNokogiri[0m::HTML(open([31m[1;31m"[0m[31mhttps://www.dictionary.com/e/word-of-the-day/[1;31m"[0m[31m[0m))
+    [1;34m20[0m:   [1;34m# meaning = self.new[0m
+    [1;34m21[0m:   [1;34m# meaning.word = doc.search('div.otd-item-headword__word')[0].text.strip #word of the day[0m
+    [1;34m22[0m:   [36m@@wotd[0m = doc.search([31m[1;31m'[0m[31mdiv.otd-item-headword__word[1;31m'[0m[31m[0m)[[1;34m0[0m].text.strip
+    [1;34m23[0m:   [36m@@pos[0m = doc.search([31m[1;31m'[0m[31mspan.luna-pos[1;31m'[0m[31m[0m)[[1;34m0[0m].text.strip
+    [1;34m24[0m:   [36m@@pronu[0m = doc.search([31m[1;31m'[0m[31mdiv.otd-item-headword__pronunciation[1;31m'[0m[31m[0m)[[1;34m0[0m].text.strip
+    [1;34m25[0m:   [36m@@def[0m = doc.css([31m[1;31m'[0m[31mp[1;31m'[0m[31m[0m)[[1;34m2[0m].text
+ => [1;34m26[0m:   binding.pry
+    [1;34m27[0m:   [1;34m# @@meaning = doc.css('h1')[2].text[0m
+    [1;34m28[0m:   [1;34m# meaning.body =[0m
+    [1;34m29[0m:   [1;34m# binding.pry[0m
+    [1;34m30[0m:   [36m@@meaning[0m
+    [1;34m31[0m: [32mend[0m
+
