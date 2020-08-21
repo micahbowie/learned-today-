@@ -1,7 +1,9 @@
 class LearnedToday::CLI
 
   def call
-    @@scrape = LearnedToday::Scraper.fetch
+    @@wotd = LearnedToday::Scraper.fetch_wotd
+    @@news = LearnedToday::Scraper.fetch_news
+    @@facts = LearnedToday::Scraper.fetch_facts
     system ("cls")
     LearnedToday::Opening.welcome
     LearnedToday::Opening.time_greeting
@@ -59,6 +61,11 @@ class LearnedToday::CLI
       thought
       joke
       further_input
+    when 'menu'
+      clear
+      LearnedToday::Opening.header
+      LearnedToday::Opening.menu
+      further_input
     when 'clear'
       clear
     else
@@ -83,43 +90,43 @@ class LearnedToday::CLI
   def wotd
     puts 'The Word of the day is:'.green
     puts ''
-    puts "#{LearnedToday::Scraper.wotd_arry[0]} #{LearnedToday::Scraper.wotd_arry[2]}".light_green
-    puts "#{LearnedToday::Scraper.wotd_arry[3]} "
+    puts "#{@@wotd.wotd} #{@@wotd.pronu}".light_green
+    puts "#{@@wotd.def} "
     puts ""
   end
 
   def goodnews
     puts 'Here is a article that will lift your spirits:'.green
     puts ""
-    puts "#{LearnedToday::Scraper.goodnews_arry[0]}".light_green
-    puts "#{LearnedToday::Scraper.goodnews_arry[2]} "
+    puts "#{@@news.title}".light_green
+    puts "#{@@news.prev} "
     puts ""
     puts "Here is the link to the full story:"
-    puts "#{LearnedToday::Scraper.goodnews_arry[1]}".light_blue
+    puts "#{@@news.link}".light_blue
     puts ""
   end
 
   def fact
     puts 'Here is your random fact of the day:'.green
-    puts "#{LearnedToday::Scraper.otherlearn_arry[0]}".light_green
+    puts "#{@@facts.fact}".light_green
     puts ''
   end
 
   def qoute
     puts 'The qoute today is:'.green
-    puts "#{LearnedToday::Scraper.otherlearn_arry[2]}".light_green
+    puts "#{@@facts.qoute}".light_green
     puts ''
   end
 
   def thought
     puts 'Thought of the day:'.green
-    puts "#{LearnedToday::Scraper.otherlearn_arry[3]}".light_green
+    puts "#{@@facts.thought}".light_green
     puts ''
   end
 
   def joke
     puts 'The joke for today is:'.green
-    puts "#{LearnedToday::Scraper.otherlearn_arry[1]}".light_green
+    puts "#{@@facts.joke}".light_green
     puts ''
   end
 
